@@ -288,3 +288,27 @@ div[role='dialog'] {
 		top: 93vh;
 	}
 }
+
+.rightApp{
+  height: 100%;
+  width: 90%;
+  background-color: blue;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.graphDisplaier{
+  height: 40%;
+  width: 100%;
+  background-color: crimson;
+}
+
+.scontrDisplaier{
+  height: 60%;
+  width: 100%;
+  background-color: green;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
