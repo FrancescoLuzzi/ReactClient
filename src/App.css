@@ -291,24 +291,26 @@ div[role='dialog'] {
 
 .rightApp{
   height: 100%;
-  width: 90%;
+  width: 80%;
   background-color: blue;
   display: flex;
   align-items: stretch;
   flex-direction: column;
 }
 
-.graphDisplaier{
+.graphDisplayer{
   height: 40%;
   width: 100%;
   background-color: crimson;
 }
 
-.scontrDisplaier{
+.scontrDisplayer{
   height: 60%;
   width: 100%;
   background-color: green;
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
 }
