@@ -9,10 +9,10 @@ function MainApp(props){
         <div className="mainApp">
             
             <DisplayState>
-                <LeftMenu Axios={props.Axios}/>
+                <LeftMenu/>
             </DisplayState>
             
-            <RightApp Axios={props.Axios}/>
+            <RightApp/>
             
         </div>
     );
