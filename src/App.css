@@ -4,8 +4,19 @@
   height: 100vh;
 }
 
+.addButton{
+  position: absolute;
+  left: 50vw;
+  top: 93vh;
+}
 
-.App-header {
+@media (min-width:900px){
+
+.addButton{
+  left: 60vw;
+}
+
+.header {
   background-color: #282c34;
   height: 10%;
   display: flex;
@@ -34,24 +45,26 @@
 
 .rightApp{
   height: 100%;
-  width: 90%;
+  width: 80%;
   background-color: blue;
   display: flex;
   align-items: stretch;
   flex-direction: column;
 }
 
-.graphDisplaier{
+.graphDisplayer{
   height: 40%;
   width: 100%;
   background-color: crimson;
 }
 
-.scontrDisplaier{
+.scontrDisplayer{
   height: 60%;
   width: 100%;
   background-color: green;
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
 }
