@@ -14,8 +14,12 @@ function ScontrDisplayer(props){
       })*/
       alert("dovrei morire");
     }
+
+    const myStyle={
+      
+    };
     return(
-        <div className="scontrDisplayer">
+        <div className="scontrDisplayer" style={myStyle}>
                 {scontrini.map((el)=>{
                   return <Scontrino scontrino={el} handleDelete={handleDelete}></Scontrino>
                 })}
