@@ -44,6 +44,7 @@ function LeftMenu(props){
     const getScontrini=()=>{
       if(!checkResearch(false))return;
       let url=`getScontrini?year=${data.split("-")[0]}`;
+      console.log(url);
       AxiosIstance.get(url).then((result)=>{
         setScontrini(result.data)
       }).catch((err)=>{
@@ -55,8 +56,10 @@ function LeftMenu(props){
       if(!checkResearch(false))return;
       let parti=data.split("-");
       let url=`getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
+      console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini(result.data)
+        setScontrini([]);
+        setScontrini(result.data);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -65,8 +68,10 @@ function LeftMenu(props){
       if(!checkResearch(true))return;
       let parti=data.split("-");
       let url=`getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
+      console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini(result.data)
+        setScontrini([]);
+        setScontrini(result.data);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -74,8 +79,10 @@ function LeftMenu(props){
     const getScontriniByDate=()=>{
       if(!checkResearch(false))return;
       let url=`getScontriniByDate?date=${data}`;
+      console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini(result.data)
+        setScontrini([]);
+        setScontrini(result.data);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -83,14 +90,17 @@ function LeftMenu(props){
     const getScontriniByWeek=()=>{
       if(!checkResearch(false))return;
       let url=`getScontriniByWeek?date=${data}`;
+      console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini(result.data)
+        setScontrini([]);
+        setScontrini(result.data);
       }).catch((err)=>{
         alert(err.value);
       })
     };
 
-    useEffect(()=>{getTipologie()})
+    useEffect(()=>{getTipologie()});
+
     return(
         <div className="leftMenu">
             
