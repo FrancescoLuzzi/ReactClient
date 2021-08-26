@@ -308,9 +308,18 @@ div[role='dialog'] {
   height: 60%;
   width: 100%;
   background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.scontrino{
+  flex: 1 1 30%; /*grow | shrink | basis */
+  height: 5rem;
 }
 
 }
