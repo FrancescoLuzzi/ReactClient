@@ -1,18 +1,23 @@
 import React from 'react';
 import LeftMenu from './LeftMenu/LeftMenu';
 import RightApp from './RightApp/RightApp';
-import DisplayState from '../commons/DisplayState';
-
+import TipologieState from '../Contexts/TipologieContext';
+import ScontriniState from '../Contexts/ScontriniContext';
+import AddScontrDialog from '../AddScontrDialog';
 function MainApp(props){
 
     return(
         <div className="mainApp">
-            
-            <DisplayState>
+
+            <ScontriniState>
+            <TipologieState>
                 <LeftMenu/>
-            </DisplayState>
+                <AddScontrDialog/>
+                <RightApp/>
+            </TipologieState>
+            </ScontriniState>
+
             
-            <RightApp/>
             
         </div>
     );
