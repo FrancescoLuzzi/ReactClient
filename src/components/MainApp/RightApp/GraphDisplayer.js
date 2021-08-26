@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import {DisplayContext} from '../../../commons/DisplayState';
+import {ScontriniContext} from '../../Contexts/ScontriniContext';
 
 function GraphDisplayer(props){
-    const [state, setState]= useContext(DisplayContext);
+    const [scontrini, setScontrini]= useContext(ScontriniContext);
     return(
         <div className="graphDisplayer">
             

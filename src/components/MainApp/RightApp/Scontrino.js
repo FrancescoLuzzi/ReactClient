@@ -4,7 +4,7 @@ function Scontrino(props){
     const [state, setState]= useState(props.scontrino);
 
     return(
-        <div className="scontrino">
+        <div className="scontrino" id={state.id} onClick={props.handleDelete}>
             {state.tipo}____{state.prezzo}
         </div>
     );

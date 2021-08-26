@@ -1,25 +1,139 @@
-import React, { useContext } from 'react';
-import {DisplayContext} from '../../commons/DisplayState';
+import React, { useContext, useEffect, useState } from 'react';
+import {TipologieContext} from '../../Contexts/TipologieContext';
+import {ScontriniContext} from '../../Contexts/ScontriniContext';
 import AxiosIstance from '../../commons/AxiosIstance';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import TextField from '@material-ui/core/TextField';
 
 function LeftMenu(props){
-    const [state, setState]= useContext(DisplayContext);
+    const [tipologie, setTipologie] = useContext(TipologieContext);
 
+    const [scontrini, setScontrini] = useContext(ScontriniContext);
+
+    const [tipo,setTipo]=useState("");
+
+    const [data, setData]=useState(new Date().toISOString().substr(0, 10));
+
+    /*const [yearSet,SetYearSet]=useState([]);
+
+    useEffect(()=>{
+      let years=[]
+      let now=+data.split("-")[0]
+      for(let i=2018; i<now;i++){
+        years[now-i]=i;
+      }
+      SetYearSet(years);
+    });*/
+    
     const getTipologie=()=>{
         AxiosIstance.get("getTipologie")
         .then((result)=>{
-          setState({tipi: result.data});
+          setTipologie(result.data);
         })
     };
 
+    const checkResearch=(useTipo)=>{
+      
+      if(data === "") return false;
+      if( useTipo && tipo === "" ) return false;
+      return true;
+    };
+
+    const getScontrini=()=>{
+      if(!checkResearch(false))return;
+      let url=`getScontrini?year=${data.split("-")[0]}`;
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini(result.data)
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+
+    const getScontriniByMonth=()=>{
+      if(!checkResearch(false))return;
+      let parti=data.split("-");
+      let url=`getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini(result.data)
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+    const getScontriniByMonthAndType=()=>{
+      if(!checkResearch(true))return;
+      let parti=data.split("-");
+      let url=`getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini(result.data)
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+    const getScontriniByDate=()=>{
+      if(!checkResearch(false))return;
+      let url=`getScontriniByDate?date=${data}`;
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini(result.data)
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+    const getScontriniByWeek=()=>{
+      if(!checkResearch(false))return;
+      let url=`getScontriniByWeek?date=${data}`;
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini(result.data)
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+
+    useEffect(()=>{getTipologie()})
     return(
         <div className="leftMenu">
-            <button onClick={()=>getTipologie()}>Get Tipologie</button>
-            <ul>
-              {state.tipi.map((el)=>{
-                return <li id={el.tipo}>{el.tipo}</li>
-              })}
-            </ul>
+            
+          <InputLabel id="Tipologia-left">Tipologia</InputLabel>
+          
+          <Select
+            labelId="Tipologia-left"
+            id="selectTipologia"
+            value={tipo}
+            onChange={(event)=>setTipo(event.target.value)}
+            defaultValue="Cibo"
+            displayEmpty
+          >
+            <MenuItem value={""}>Seleziona Tipo</MenuItem>
+            {tipologie.map((el)=>{
+              return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>
+            })}
+            
+          </Select>
+          <br/>
+          <TextField
+            name="data"
+            label="Giorno Spesa"
+            type="date"
+            onChange={(e)=>setData(e.target.value)}
+            value={data}
+            className="datePicker"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <br/>
+          <label>Sezione di Ricerca</label>
+          <br/>
+          <button onClick={getScontrini}>Anno</button>
+          <br/>
+          <button onClick={getScontriniByMonth}>Anno e Mese</button>
+          <br/>
+          <button onClick={getScontriniByMonthAndType}>Anno,Mese,Tipo</button>
+          <br/>
+          <button onClick={getScontriniByDate}>Data</button>
+          <br/>
+          <button onClick={getScontriniByWeek}>Settimana</button>
         </div>
     );
 }
