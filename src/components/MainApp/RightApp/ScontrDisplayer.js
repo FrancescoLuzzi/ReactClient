@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {ScontriniContext} from '../../Contexts/ScontriniContext';
 import Scontrino from './Scontrino';
-import AxiosIstance from '../../commons/AxiosIstance';
+//import AxiosIstance from '../../commons/AxiosIstance';
 
 
 function ScontrDisplayer(props){

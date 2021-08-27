@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PostAddIcon from '@material-ui/icons/PostAdd';
-import AxiosIstance from './commons/AxiosIstance';
+import {AxiosIstance} from './commons/AxiosIstance';
 import {TipologieContext} from './Contexts/TipologieContext';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -72,6 +72,7 @@ export default function FormDialog() {
             fullWidth
             multiline
           />
+          <br/>
           <TextField
             margin="dense"
             name="prezzo"
@@ -80,31 +81,29 @@ export default function FormDialog() {
             onChange={(event) => setPrezzo(event.target.value)}
             value={prezzo}
           />
+          <br/>
           <TextField
             name="data"
             label="Giorno Spesa"
             type="date"
+            id="date-picker-dialog"
             onChange={(e)=>setData(e.target.value)}
             value={data}
-            className="datePicker"
-            InputLabelProps={{
-              shrink: true,
-            }}
+            InputLabelProps={{ shrink: true, required: true }}
           />
-          <InputLabel id="Tipologia">Tipologia</InputLabel>
-            <Select
-              labelId="Tipologia"
-              id="selectTipologia"
-              value={tipo}
-              onChange={(event)=>setTipo(event.target.value)}
-              displayEmpty
-            >
-              <MenuItem value={""}>Seleziona Tipo</MenuItem>
-              {tipologie.map((el)=>{
-                return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>
-              })}
-              
-            </Select>
+          <br/>
+          <Select
+            className=" selectTipologia"
+            value={tipo}
+            onChange={(event)=>setTipo(event.target.value)}
+            displayEmpty
+          >
+            <MenuItem value={""}>Seleziona Tipo</MenuItem>
+            {tipologie.map((el)=>{
+              return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>
+            })}
+            
+          </Select>
 
         </DialogContent>
         <DialogActions>

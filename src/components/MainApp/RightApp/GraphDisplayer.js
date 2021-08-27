@@ -6,6 +6,7 @@ function GraphDisplayer(props){
     return(
         <div className="graphDisplayer">
             
+            
         </div>
     );
 }

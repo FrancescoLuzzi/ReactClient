@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {TipologieContext} from '../../Contexts/TipologieContext';
 import {ScontriniContext} from '../../Contexts/ScontriniContext';
-import AxiosIstance from '../../commons/AxiosIstance';
+import {AxiosIstance} from '../../commons/AxiosIstance';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -103,12 +103,10 @@ function LeftMenu(props){
 
     return(
         <div className="leftMenu">
-            
-          <InputLabel id="Tipologia-left">Tipologia</InputLabel>
+          <h3 className="leftMenuContent">Sezione di Ricerca</h3>   
           
           <Select
-            labelId="Tipologia-left"
-            id="selectTipologia"
+            className="leftMenuContent selectTipologia"
             value={tipo}
             onChange={(event)=>setTipo(event.target.value)}
             defaultValue="Cibo"
@@ -127,23 +125,21 @@ function LeftMenu(props){
             type="date"
             onChange={(e)=>setData(e.target.value)}
             value={data}
-            className="datePicker"
+            className="datePicker leftMenuContent"
             InputLabelProps={{
               shrink: true,
             }}
           />
           <br/>
-          <label>Sezione di Ricerca</label>
+          <button className="leftMenuContent" onClick={getScontrini}>Anno</button>
           <br/>
-          <button onClick={getScontrini}>Anno</button>
+          <button className="leftMenuContent" onClick={getScontriniByMonth}>Anno e Mese</button>
           <br/>
-          <button onClick={getScontriniByMonth}>Anno e Mese</button>
+          <button className="leftMenuContent" onClick={getScontriniByMonthAndType}>Anno,Mese,Tipo</button>
           <br/>
-          <button onClick={getScontriniByMonthAndType}>Anno,Mese,Tipo</button>
+          <button className="leftMenuContent" onClick={getScontriniByDate}>Data</button>
           <br/>
-          <button onClick={getScontriniByDate}>Data</button>
-          <br/>
-          <button onClick={getScontriniByWeek}>Settimana</button>
+          <button className="leftMenuContent" onClick={getScontriniByWeek}>Settimana</button>
         </div>
     );
 }
