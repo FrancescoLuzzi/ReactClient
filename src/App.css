@@ -292,7 +292,6 @@ div[role='dialog'] {
 .rightApp{
   height: 100%;
   width: 80%;
-  background-color: blue;
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -301,16 +300,15 @@ div[role='dialog'] {
 .graphDisplayer{
   height: 40%;
   width: 100%;
-  background-color: crimson;
 }
 
 .scontrDisplayer{
   height: 60%;
   width: 100%;
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -318,8 +316,8 @@ div[role='dialog'] {
 }
 
 .scontrino{
-  flex: 1 1 30%; /*grow | shrink | basis */
-  height: 5rem;
+  flex: 0 1 30%; /*grow | shrink | basis */
+  min-height: 5rem;
 }
 
 }
