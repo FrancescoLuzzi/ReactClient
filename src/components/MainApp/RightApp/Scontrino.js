@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 
+
 function Scontrino(props){
     const [state, setState]= useState(props.scontrino);
 
