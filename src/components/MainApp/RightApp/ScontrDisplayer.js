@@ -1,29 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext , useState } from 'react';
 import {ScontriniContext} from '../../Contexts/ScontriniContext';
 import Scontrino from './Scontrino';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 //import AxiosIstance from '../../commons/AxiosIstance';
 
 
 function ScontrDisplayer(props){
     const [scontrini, setScontrini]= useContext(ScontriniContext);
 
-    const handleDelete=(event)=>{
-      /*AxiosIstance.get(`deleteScontrino?id=${event.target.id}`)
-        .then((result)=>{
-          setScontrini(prevState=> prevState.)
-      })*/
-      alert("dovrei morire");
+    const handleDelete=(id)=>{
+      const newArr=scontrini.filter(element=>{return element.id !== +id});
+      setScontrini([...newArr]);
+          /* AxiosIstance.get(`deleteScontrino?id=${id}`)
+          .then((result)=>{
+            setScontrini(prevState=> deleteScontrino());
+          }) */
     }
 
-    const myStyle={
-      
-    };
     return(
-        <div className="scontrDisplayer" style={myStyle}>
+        <div className="scontrDisplayer" >
+          <TransitionGroup
+           className="scontr-list"
+          >
                 {scontrini.map((el)=>{
-                  return <Scontrino scontrino={el} handleDelete={handleDelete}></Scontrino>
+                  return <CSSTransition
+                    key={el.id}
+                    timeout={500}
+                    classNames="scontrino"
+                  >
+                    <Scontrino scontrino={el} handleDelete={handleDelete} key={el.id}></Scontrino>
+                  </CSSTransition>
                 })}
-                
+          </TransitionGroup>      
         </div>
         
     );

@@ -46,7 +46,21 @@ function LeftMenu(props){
       let url=`getScontrini?year=${data.split("-")[0]}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini(result.data)
+        setScontrini([]);
+        setScontrini([...result.data])
+      }).catch((err)=>{
+        alert(err.value);
+      })
+    };
+
+    const getScontriniByType=()=>{
+      if(!checkResearch(true))return;
+      let parti=data.split("-");
+      let url=`getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
+      console.log(url);
+      AxiosIstance.get(url).then((result)=>{
+        setScontrini([]);
+        setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -58,8 +72,7 @@ function LeftMenu(props){
       let url=`getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
-        setScontrini(result.data);
+        setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -70,8 +83,7 @@ function LeftMenu(props){
       let url=`getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
-        setScontrini(result.data);
+        setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -81,8 +93,7 @@ function LeftMenu(props){
       let url=`getScontriniByDate?date=${data}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
-        setScontrini(result.data);
+        setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -92,8 +103,7 @@ function LeftMenu(props){
       let url=`getScontriniByWeek?date=${data}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
-        setScontrini(result.data);
+        setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
       })
@@ -132,6 +142,8 @@ function LeftMenu(props){
           />
           <br/>
           <button className="leftMenuContent" onClick={getScontrini}>Anno</button>
+          <br/>
+          <button className="leftMenuContent" onClick={getScontriniByType}>Anno e Tipo</button>
           <br/>
           <button className="leftMenuContent" onClick={getScontriniByMonth}>Anno e Mese</button>
           <br/>
