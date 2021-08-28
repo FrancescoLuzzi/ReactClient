@@ -1,6 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CancelIcon from '@material-ui/icons/Cancel';
+import Button from '@material-ui/core/Button';
 
 
 function Scontrino(props){
@@ -19,15 +24,34 @@ function Scontrino(props){
       };
     const id = open ? 'simple-popover' : undefined;
 
+    const [openDialog, setOpenDialog]=useState(false);
+
+    const handleClickOpen=()=>{
+        setOpenDialog(true);
+    };
+
+    const handleCloseDialog=()=>{
+        setOpenDialog(false);
+    };
+
+    const deleteScontrino=()=>{
+        handleCloseDialog();
+        props.handleDelete(state.id);
+    }
+
+    const classScontrino= (+state.prezzo>0 ? 'uscita' : 'entrata')+ " scontrino";
+
     return(
-        <div className="scontrino" id={state.id} >
+        <div className={classScontrino} >
             Tipologia: {state.tipo}<br/>
             Prezzo: {state.prezzo}<br/>
-            Data: {state.data.split("T")[0]}
+            Data: {new Date(state.data).toLocaleDateString()}
             <br/>
-            <div class="descrizione" aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+            <div className="descrizione" aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
                 Descrizione
             </div>
+            <CancelIcon className="deleteButton" fontSize="large" onClick={handleClickOpen}/>
+
             <Popover
                 id={id}
                 open={open}
@@ -44,6 +68,18 @@ function Scontrino(props){
             >
                 <Typography className="descrizione-popover">{state.descrizione}</Typography>
             </Popover>
+
+            <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
+                <DialogTitle className="form-dialog-title">Sei sicuro di voler eliminare lo scontrino</DialogTitle>
+                <DialogActions>
+                <Button onClick={handleCloseDialog} color="primary">
+                    Cancel
+                </Button>
+                <Button onClick={deleteScontrino} color="primary">
+                    Elimina Scontrino
+                </Button>
+                </DialogActions>
+            </Dialog>
         </div>
         
     );

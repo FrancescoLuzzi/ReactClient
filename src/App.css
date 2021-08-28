@@ -45,7 +45,7 @@ button{
 .MuiFormLabel-root.Mui-focused{
   color: var(--main-theme-color) !important;
 }
-#form-dialog-title{
+.form-dialog-title{
   color:var(--main-theme-color);
 }
 
@@ -75,6 +75,30 @@ button{
               -3px  3px 3px var(--main-theme-color);
   background-color: var(--scontrino-bg);
   margin: 0.5em;
+}
+
+.scontrino-enter {
+  opacity: 0;
+}
+.scontrino-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.scontrino-exit {
+  opacity: 1;
+}
+.scontrino-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+
+.uscita{
+  background-color: hsla(0, 100%, 50%, 0.564);
+}
+
+.entrata{
+  background-color: hsla(120, 98%, 32%, 0.762);
 }
 
 .descrizione{
@@ -136,6 +160,11 @@ button{
 
 .scontrDisplayer{
   height: 60%;
+  width: 100%;
+}
+
+.scontr-list{
+  height: 100%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
