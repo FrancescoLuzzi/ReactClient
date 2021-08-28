@@ -10,7 +10,6 @@ import {AxiosIstance} from './commons/AxiosIstance';
 import {TipologieContext} from './Contexts/TipologieContext';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 
 export default function FormDialog() {
   const [open, setOpen] = useState(false);
@@ -50,7 +49,6 @@ export default function FormDialog() {
         alert("aggiunto Scontrino")
       }).catch((err)=>{alert("errore aggiunta scontrino")});
     }
-    setOpen(false);
   };
 
   return (
@@ -58,7 +56,7 @@ export default function FormDialog() {
         <PostAddIcon className="addButton" fontSize="large" onClick={handleClickOpen}/>
       
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Aggiungi il tuo scontrino</DialogTitle>
+        <DialogTitle className="form-dialog-title">Aggiungi il tuo scontrino</DialogTitle>
         <DialogContent>
           
           <TextField
