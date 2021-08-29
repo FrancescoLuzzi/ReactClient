@@ -30,7 +30,7 @@ function LeftMenu(props){
     const getTipologie=()=>{
         AxiosIstance.get("getTipologie")
         .then((result)=>{
-          setTipologie(result.data);
+          setTipologie([...result.data]);
         })
     };
 
