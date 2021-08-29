@@ -1,22 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {TipologieContext} from '../../Contexts/TipologieContext';
-import {ScontriniContext} from '../../Contexts/ScontriniContext';
-import {AxiosIstance} from '../../commons/AxiosIstance';
+import { TipologieContext } from '../../Contexts/TipologieContext';
+import { ScontriniContext } from '../../Contexts/ScontriniContext';
+import { AxiosIstance } from '../../commons/AxiosIstance';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 
-function LeftMenu(props){
-    const [tipologie, setTipologie] = useContext(TipologieContext);
+function LeftMenu(props) {
+	const [tipologie, setTipologie] = useContext(TipologieContext);
 
-    const [scontrini, setScontrini] = useContext(ScontriniContext);
+	const [scontrini, setScontrini] = useContext(ScontriniContext);
 
-    const [tipo,setTipo]=useState("");
+	const [tipo, setTipo] = useState('');
 
-    const [data, setData]=useState(new Date().toISOString().substr(0, 10));
+	const [data, setData] = useState(new Date().toISOString().substr(0, 10));
 
-    /*const [yearSet,SetYearSet]=useState([]);
+	/*const [yearSet,SetYearSet]=useState([]);
 
     useEffect(()=>{
       let years=[]
@@ -26,133 +26,159 @@ function LeftMenu(props){
       }
       SetYearSet(years);
     });*/
-    
-    const getTipologie=()=>{
-        AxiosIstance.get("getTipologie")
-        .then((result)=>{
-          setTipologie([...result.data]);
-        })
-    };
 
-    const checkResearch=(useTipo)=>{
-      
-      if(data === "") return false;
-      if( useTipo && tipo === "" ) return false;
-      return true;
-    };
+	const getTipologie = () => {
+		AxiosIstance.get('getTipologie').then((result) => {
+			setTipologie([...result.data]);
+		});
+	};
 
-    const getScontrini=()=>{
-      if(!checkResearch(false))return;
-      let url=`getScontrini?year=${data.split("-")[0]}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        setScontrini([...result.data])
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
+	const checkResearch = (useTipo) => {
+		if (data === '') return false;
+		if (useTipo && tipo === '') return false;
+		return true;
+	};
 
-    const getScontriniByType=()=>{
-      if(!checkResearch(true))return;
-      let parti=data.split("-");
-      let url=`getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        setScontrini([...result.data]);
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
+	const getScontrini = () => {
+		if (!checkResearch(false)) return;
+		let url = `getScontrini?year=${data.split('-')[0]}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
 
-    const getScontriniByMonth=()=>{
-      if(!checkResearch(false))return;
-      let parti=data.split("-");
-      let url=`getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        setScontrini([...result.data]);
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
-    const getScontriniByMonthAndType=()=>{
-      if(!checkResearch(true))return;
-      let parti=data.split("-");
-      let url=`getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        setScontrini([...result.data]);
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
-    const getScontriniByDate=()=>{
-      if(!checkResearch(false))return;
-      let url=`getScontriniByDate?date=${data}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        setScontrini([...result.data]);
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
-    const getScontriniByWeek=()=>{
-      if(!checkResearch(false))return;
-      let url=`getScontriniByWeek?date=${data}`;
-      console.log(url);
-      AxiosIstance.get(url).then((result)=>{
-        console.log(result.data);
-        setScontrini([...result.data]);
-      }).catch((err)=>{
-        alert(err.value);
-      })
-    };
+	const getScontriniByType = () => {
+		if (!checkResearch(true)) return;
+		let parti = data.split('-');
+		let url = `getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
 
-    useEffect(()=>{getTipologie()});
+	const getScontriniByMonth = () => {
+		if (!checkResearch(false)) return;
+		let parti = data.split('-');
+		let url = `getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
+	const getScontriniByMonthAndType = () => {
+		if (!checkResearch(true)) return;
+		let parti = data.split('-');
+		let url = `getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
+	const getScontriniByDate = () => {
+		if (!checkResearch(false)) return;
+		let url = `getScontriniByDate?date=${data}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
+	const getScontriniByWeek = () => {
+		if (!checkResearch(false)) return;
+		let url = `getScontriniByWeek?date=${data}`;
+		console.log(url);
+		AxiosIstance.get(url)
+			.then((result) => {
+				console.log(result.data);
+				setScontrini([...result.data]);
+			})
+			.catch((err) => {
+				alert(err.value);
+			});
+	};
 
-    return(
-        <div className="leftMenu">
-          <h3 className="leftMenuContent">Sezione di Ricerca</h3>   
-          
-          <Select
-            className="leftMenuContent selectTipologia"
-            value={tipo}
-            onChange={(event)=>setTipo(event.target.value)}
-            defaultValue="Cibo"
-            displayEmpty
-          >
-            <MenuItem value={""}>Seleziona Tipo</MenuItem>
-            {tipologie.map((el)=>{
-              return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>
-            })}
-            
-          </Select>
-          <br/>
-          <TextField
-            name="data"
-            label="Giorno Spesa"
-            type="date"
-            onChange={(e)=>setData(e.target.value)}
-            value={data}
-            className="datePicker leftMenuContent"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <br/>
-          <button className="leftMenuContent" onClick={getScontrini}>Anno</button>
-          <br/>
-          <button className="leftMenuContent" onClick={getScontriniByType}>Anno e Tipo</button>
-          <br/>
-          <button className="leftMenuContent" onClick={getScontriniByMonth}>Anno e Mese</button>
-          <br/>
-          <button className="leftMenuContent" onClick={getScontriniByMonthAndType}>Anno,Mese,Tipo</button>
-          <br/>
-          <button className="leftMenuContent" onClick={getScontriniByDate}>Data</button>
-          <br/>
-          <button className="leftMenuContent" onClick={getScontriniByWeek}>Settimana</button>
-        </div>
-    );
+	useEffect(() => {
+		getTipologie();
+	});
+
+	return (
+		<div className='leftMenu'>
+			<h3 className='leftMenuContent'>Sezione di Ricerca</h3>
+
+			<Select
+				className='leftMenuContent selectTipologia'
+				value={tipo}
+				onChange={(event) => setTipo(event.target.value)}
+				defaultValue='Cibo'
+				displayEmpty
+			>
+				<MenuItem value={''}>Seleziona Tipo</MenuItem>
+				{tipologie.map((el) => {
+					return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>;
+				})}
+			</Select>
+			<br />
+			<TextField
+				name='data'
+				label='Giorno Spesa'
+				type='date'
+				onChange={(e) => setData(e.target.value)}
+				value={data}
+				className='datePicker leftMenuContent'
+				InputLabelProps={{
+					shrink: true,
+				}}
+			/>
+			<br />
+			<button className='leftMenuContent' onClick={getScontrini}>
+				Anno
+			</button>
+			<br />
+			<button className='leftMenuContent' onClick={getScontriniByType}>
+				Anno e Tipo
+			</button>
+			<br />
+			<button className='leftMenuContent' onClick={getScontriniByMonth}>
+				Anno e Mese
+			</button>
+			<br />
+			<button
+				className='leftMenuContent'
+				onClick={getScontriniByMonthAndType}
+			>
+				Anno,Mese,Tipo
+			</button>
+			<br />
+			<button className='leftMenuContent' onClick={getScontriniByDate}>
+				Data
+			</button>
+			<br />
+			<button className='leftMenuContent' onClick={getScontriniByWeek}>
+				Settimana
+			</button>
+		</div>
+	);
 }
 
 export default LeftMenu;
