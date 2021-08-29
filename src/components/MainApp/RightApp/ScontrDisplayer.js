@@ -5,7 +5,7 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-//import AxiosIstance from '../../commons/AxiosIstance';
+import {AxiosIstance} from '../../commons/AxiosIstance';
 
 
 function ScontrDisplayer(props){
@@ -14,10 +14,7 @@ function ScontrDisplayer(props){
     const handleDelete=(id)=>{
       const newArr=scontrini.filter(element=>{return element.id !== +id});
       setScontrini([...newArr]);
-          /* AxiosIstance.get(`deleteScontrino?id=${id}`)
-          .then((result)=>{
-            setScontrini(prevState=> deleteScontrino());
-          }) */
+      AxiosIstance.get(`deleteScontrino?id=${id}`);
     }
 
     return(
@@ -28,7 +25,7 @@ function ScontrDisplayer(props){
                 {scontrini.map((el)=>{
                   return <CSSTransition
                     key={el.id}
-                    timeout={500}
+                    timeout={300}
                     classNames="scontrino"
                   >
                     <Scontrino scontrino={el} handleDelete={handleDelete} key={el.id}></Scontrino>
