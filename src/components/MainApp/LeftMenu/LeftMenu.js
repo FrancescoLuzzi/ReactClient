@@ -46,7 +46,6 @@ function LeftMenu(props){
       let url=`getScontrini?year=${data.split("-")[0]}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
         setScontrini([...result.data])
       }).catch((err)=>{
         alert(err.value);
@@ -59,7 +58,6 @@ function LeftMenu(props){
       let url=`getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
-        setScontrini([]);
         setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
@@ -103,6 +101,7 @@ function LeftMenu(props){
       let url=`getScontriniByWeek?date=${data}`;
       console.log(url);
       AxiosIstance.get(url).then((result)=>{
+        console.log(result.data);
         setScontrini([...result.data]);
       }).catch((err)=>{
         alert(err.value);
