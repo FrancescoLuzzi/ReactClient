@@ -19,9 +19,9 @@ function LeftMenu(props) {
 	/*const [yearSet,SetYearSet]=useState([]);
 
     useEffect(()=>{
-      let years=[]
-      let now=+data.split("-")[0]
-      for(let i=2018; i<now;i++){
+      const years=[]
+      const now=+data.split("-")[0]
+      for(const i=2018; i<now;i++){
         years[now-i]=i;
       }
       SetYearSet(years);
@@ -41,7 +41,7 @@ function LeftMenu(props) {
 
 	const getScontrini = () => {
 		if (!checkResearch(false)) return;
-		let url = `getScontrini?year=${data.split('-')[0]}`;
+		const url = `getScontrini?year=${data.split('-')[0]}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
@@ -54,8 +54,8 @@ function LeftMenu(props) {
 
 	const getScontriniByType = () => {
 		if (!checkResearch(true)) return;
-		let parti = data.split('-');
-		let url = `getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
+		const parti = data.split('-');
+		const url = `getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
@@ -68,8 +68,8 @@ function LeftMenu(props) {
 
 	const getScontriniByMonth = () => {
 		if (!checkResearch(false)) return;
-		let parti = data.split('-');
-		let url = `getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
+		const parti = data.split('-');
+		const url = `getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
@@ -81,8 +81,8 @@ function LeftMenu(props) {
 	};
 	const getScontriniByMonthAndType = () => {
 		if (!checkResearch(true)) return;
-		let parti = data.split('-');
-		let url = `getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
+		const parti = data.split('-');
+		const url = `getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
@@ -94,7 +94,7 @@ function LeftMenu(props) {
 	};
 	const getScontriniByDate = () => {
 		if (!checkResearch(false)) return;
-		let url = `getScontriniByDate?date=${data}`;
+		const url = `getScontriniByDate?date=${data}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
@@ -106,7 +106,7 @@ function LeftMenu(props) {
 	};
 	const getScontriniByWeek = () => {
 		if (!checkResearch(false)) return;
-		let url = `getScontriniByWeek?date=${data}`;
+		const url = `getScontriniByWeek?date=${data}`;
 		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
