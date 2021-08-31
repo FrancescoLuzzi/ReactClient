@@ -6,16 +6,25 @@
 	--main-bg: rgb(157, 157, 157);
 
 	--scontrino-bg: #dedede;
+	--scontrino-shadow: rgba(0, 0, 0, 0.55);
 }
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
 button {
 	border-radius: 5px;
+	padding: 2px;
 }
 
 .App {
 	text-align: center;
 	width: 100vw;
 	height: 100vh;
-	font-family: sans-serif;
 }
 .leftMenuContent {
 	margin: 0.4rem;
@@ -33,6 +42,7 @@ button {
 	top: 93vh;
 }
 
+/*la parte in cui ci sono i Mui è per @material-ui*/
 .MuiInput-underline:after {
 	border-bottom: 2px solid var(--main-theme-color) !important;
 }
@@ -62,17 +72,15 @@ button {
 }
 
 .scontrino {
+	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
+	border: 3px solid var(--scontrino-shadow);
 	border-radius: 8px;
-	box-shadow: 3px 3px 3px var(--main-theme-color),
-		-3px -3px 3px var(--main-theme-color),
-		3px -3px 3px var(--main-theme-color),
-		-3px 3px 3px var(--main-theme-color);
-	background-color: var(--scontrino-bg);
+	box-shadow: 3px 3px 6px var(--scontrino-shadow);
 	margin: 0.5em;
 }
 
@@ -111,9 +119,17 @@ button {
 }
 
 @media (min-width: 900px) {
+
 	.addButton {
 		left: 60vw;
 	}
+
+	ul {
+		columns: 2;
+		-webkit-columns: 2;
+		-moz-columns: 2;
+		list-style-position: inside;
+	}	
 
 	.header {
 		background-color: #282c34;
