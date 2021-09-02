@@ -38,14 +38,13 @@ function Scontrino(props) {
 		props.handleDelete(state.id);
 	};
 
-	const classScontrino =
-		(+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino';
+	const classScontrino =(+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino';
 
 	return (
 		<div className={classScontrino}>
 			Tipologia: {state.tipo}
 			<br />
-			Prezzo: {state.prezzo}
+			Prezzo: {Math.abs(state.prezzo)}
 			<br />
 			Data: {new Date(state.data).toLocaleDateString()}
 			<br />
