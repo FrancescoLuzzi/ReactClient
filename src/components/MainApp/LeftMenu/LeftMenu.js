@@ -4,13 +4,12 @@ import { ScontriniContext } from '../../Contexts/ScontriniContext';
 import { AxiosIstance } from '../../commons/AxiosIstance';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 
 function LeftMenu(props) {
 	const [tipologie, setTipologie] = useContext(TipologieContext);
 
-	const [scontrini, setScontrini] = useContext(ScontriniContext);
+	const [, setScontrini] = useContext(ScontriniContext);
 
 	const [tipo, setTipo] = useState('');
 
