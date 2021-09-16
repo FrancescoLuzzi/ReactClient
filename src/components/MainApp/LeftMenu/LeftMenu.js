@@ -138,7 +138,7 @@ function LeftMenu(props) {
 					return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>;
 				})}
 			</Select>
-			<br />
+
 			<TextField
 				name='data'
 				label='Giorno Spesa'
@@ -150,30 +150,27 @@ function LeftMenu(props) {
 					shrink: true,
 				}}
 			/>
-			<br />
+
 			<button className='leftMenuContent' onClick={getScontrini}>
 				Anno
 			</button>
-			<br />
+
 			<button className='leftMenuContent' onClick={getScontriniByType}>
 				Anno e Tipo
 			</button>
-			<br />
+
 			<button className='leftMenuContent' onClick={getScontriniByMonth}>
 				Anno e Mese
 			</button>
-			<br />
-			<button
-				className='leftMenuContent'
-				onClick={getScontriniByMonthAndType}
-			>
+
+			<button className='leftMenuContent' onClick={getScontriniByMonthAndType}>
 				Anno,Mese,Tipo
 			</button>
-			<br />
+
 			<button className='leftMenuContent' onClick={getScontriniByDate}>
 				Data
 			</button>
-			<br />
+
 			<button className='leftMenuContent' onClick={getScontriniByWeek}>
 				Settimana
 			</button>
