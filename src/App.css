@@ -97,16 +97,8 @@ button {
 }
 
 /*la parte in cui ci sono i Mui è per @material-ui*/
-ul {
-	columns: 2;
-	-webkit-columns: 2;
-	-moz-columns: 2;
-	list-style-position: inside;
-}
 
 div[role='dialog'] {
-	width: 50%;
-	height: 50%;
 	align-items: center;
 }
 
@@ -205,6 +197,13 @@ div[role='dialog'] {
 }
 
 @media (min-width: 900px) {
+	ul {
+		columns: 2;
+		-webkit-columns: 2;
+		-moz-columns: 2;
+		list-style-position: inside;
+	}
+
 	.addButton {
 		left: 60vw;
 	}
