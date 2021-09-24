@@ -21,6 +21,7 @@
 html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	font-size: 22px;
 }
 
 #root {
@@ -41,7 +42,7 @@ button {
 
 .mainApp {
 	background-color: var(--main-bg);
-	height: 93%;
+	min-height: 93%;
 	width: 100%;
 }
 
@@ -197,6 +198,10 @@ div[role='dialog'] {
 }
 
 @media (min-width: 900px) {
+	html {
+		font-size: 14px;
+	}
+
 	ul {
 		columns: 2;
 		-webkit-columns: 2;
