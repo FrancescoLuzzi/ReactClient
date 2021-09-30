@@ -26,8 +26,6 @@ export default function FormDialog() {
 
 	const handleClose = () => {
 		setOpen(false);
-		console.log(data);
-		console.log(descrizione);
 	};
 
 	const checkScontrino = () => {
@@ -56,20 +54,10 @@ export default function FormDialog() {
 
 	return (
 		<div>
-			<PostAddIcon
-				className='addButton'
-				fontSize='large'
-				onClick={handleClickOpen}
-			/>
+			<PostAddIcon className='addButton' fontSize='large' onClick={handleClickOpen} />
 
-			<Dialog
-				open={open}
-				onClose={handleClose}
-				aria-labelledby='form-dialog-title'
-			>
-				<DialogTitle className='form-dialog-title'>
-					Aggiungi il tuo scontrino
-				</DialogTitle>
+			<Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
+				<DialogTitle className='form-dialog-title'>Aggiungi il tuo scontrino</DialogTitle>
 				<DialogContent>
 					<TextField
 						autoFocus
@@ -102,12 +90,7 @@ export default function FormDialog() {
 						InputLabelProps={{ shrink: true, required: true }}
 					/>
 					<br />
-					<Select
-						className=' selectTipologia'
-						value={tipo}
-						onChange={(event) => setTipo(event.target.value)}
-						displayEmpty
-					>
+					<Select className=' selectTipologia' value={tipo} onChange={(event) => setTipo(event.target.value)} displayEmpty>
 						<MenuItem value={''}>Seleziona Tipo</MenuItem>
 						{tipologie.map((el) => {
 							return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>;

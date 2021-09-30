@@ -119,7 +119,7 @@ function LeftMenu(props) {
 
 	useEffect(() => {
 		getTipologie();
-	});
+	}, []);
 
 	return (
 		<div className='leftMenu'>
