@@ -58,7 +58,7 @@ export default function FormDialog() {
 
 			<Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
 				<DialogTitle className='form-dialog-title'>Aggiungi il tuo scontrino</DialogTitle>
-				<DialogContent>
+				<DialogContent className='addDialog'>
 					<TextField
 						autoFocus
 						margin='dense'
