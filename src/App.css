@@ -154,14 +154,14 @@ div[role='dialog'] {
 }
 .scontrino-enter-active {
 	opacity: 1;
-	transition: opacity 500ms ease-in;
+	transition: opacity 400ms ease-in;
 }
 .scontrino-exit {
 	opacity: 1;
 }
 .scontrino-exit-active {
 	opacity: 0;
-	transition: opacity 500ms ease-in;
+	transition: opacity 400ms ease-in;
 }
 
 .uscita {
@@ -257,7 +257,7 @@ div[role='dialog'] {
 	}
 
 	.scontrino {
-		flex: 0 1 30%; /*grow | shrink | basis */
+		flex: 0 1 15%; /*grow | shrink | basis */
 		min-height: 5rem;
 	}
 }
