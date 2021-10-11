@@ -101,7 +101,6 @@ button {
 
 div[role='dialog'] {
 	align-items: center;
-	min-height: 400px;
 }
 
 .MuiInput-underline:after {
@@ -267,5 +266,8 @@ div[role='dialog'] {
 @media (max-width: 600px) {
 	html {
 		font-size: 19px;
+	}
+	.addDialog {
+		min-height: 250px;
 	}
 }
