@@ -115,7 +115,6 @@ button {
 
 div[role='dialog'] {
 	align-items: center;
-	min-height: 400px;
 }
 
 .MuiInput-underline:after {
