@@ -198,7 +198,7 @@ div[role='dialog'] {
 }
 
 /*DESKTOP*/
-@media (min-width: 1000px) {
+@media (min-width: 1025px) {
 	#root {
 		height: 100vh;
 		width: 100vw;
@@ -263,7 +263,7 @@ div[role='dialog'] {
 }
 
 /*MOBILE*/
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 	html {
 		font-size: 19px;
 	}
