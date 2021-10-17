@@ -12,7 +12,7 @@ function ScontrDisplayer(props) {
 			return element.id !== +id;
 		});
 		setScontrini([...newArr]);
-		AxiosIstance.get(`deleteScontrino?id=${id}`);
+		AxiosIstance.delete(`deleteScontrino?id=${id}`);
 	};
 
 	return (
@@ -20,16 +20,8 @@ function ScontrDisplayer(props) {
 			<TransitionGroup className='scontr-list'>
 				{scontrini.map((el) => {
 					return (
-						<CSSTransition
-							key={el.id}
-							timeout={300}
-							classNames='scontrino'
-						>
-							<Scontrino
-								scontrino={el}
-								handleDelete={handleDelete}
-								key={el.id}
-							></Scontrino>
+						<CSSTransition key={el.id} timeout={300} classNames='scontrino'>
+							<Scontrino scontrino={el} handleDelete={handleDelete} key={el.id}></Scontrino>
 						</CSSTransition>
 					);
 				})}
