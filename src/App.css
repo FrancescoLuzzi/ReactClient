@@ -257,7 +257,7 @@ div[role='dialog'] {
 	}
 
 	.scontrino {
-		flex: 0 1 15%; /*grow | shrink | basis */
+		flex: 1 1 15%; /*grow | shrink | basis */
 		min-height: 5rem;
 	}
 }
