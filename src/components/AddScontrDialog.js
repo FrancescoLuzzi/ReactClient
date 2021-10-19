@@ -91,9 +91,15 @@ export default function FormDialog() {
 					/>
 					<br />
 					<Select className=' selectTipologia' value={tipo} onChange={(event) => setTipo(event.target.value)} displayEmpty>
-						<MenuItem value={''}>Seleziona Tipo</MenuItem>
+						<MenuItem value={''} key='vuoto'>
+							Seleziona Tipo
+						</MenuItem>
 						{tipologie.map((el) => {
-							return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>;
+							return (
+								<MenuItem value={el.tipo} key={el.tipo}>
+									{el.tipo}
+								</MenuItem>
+							);
 						})}
 					</Select>
 				</DialogContent>

@@ -26,11 +26,11 @@ function LeftMenu(props) {
       SetYearSet(years);
     });*/
 
-	const getTipologie = () => {
+	function getTipologie() {
 		AxiosIstance.get('getTipologie').then((result) => {
 			setTipologie([...result.data]);
 		});
-	};
+	}
 
 	const checkResearch = (useTipo) => {
 		if (data === '') return false;
@@ -134,7 +134,11 @@ function LeftMenu(props) {
 			>
 				<MenuItem value={''}>Seleziona Tipo</MenuItem>
 				{tipologie.map((el) => {
-					return <MenuItem value={el.tipo}>{el.tipo}</MenuItem>;
+					return (
+						<MenuItem value={el.tipo} key={el.tipo}>
+							{el.tipo}
+						</MenuItem>
+					);
 				})}
 			</Select>
 
