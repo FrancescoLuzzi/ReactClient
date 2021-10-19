@@ -189,7 +189,7 @@ div[role='dialog'] {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items: stretch;
 	justify-content: center;
 	align-content: flex-start;
 	scroll-behavior: smooth;
@@ -257,7 +257,7 @@ div[role='dialog'] {
 	}
 
 	.scontrino {
-		flex: 1 1 15%; /*grow | shrink | basis */
+		flex: 0 0 15%; /*grow | shrink | basis */
 		min-height: 5rem;
 	}
 }
