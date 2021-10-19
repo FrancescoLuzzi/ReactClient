@@ -282,4 +282,9 @@ div[role='dialog'] {
 	.addDialog {
 		min-height: 250px;
 	}
+	.addButton {
+		position: fixed;
+		left: 45vw;
+		top: 93vh;
+	}
 }
