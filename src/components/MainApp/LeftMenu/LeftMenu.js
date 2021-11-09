@@ -41,7 +41,6 @@ function LeftMenu(props) {
 	const getScontrini = () => {
 		if (!checkResearch(false)) return;
 		const url = `getScontrini?year=${data.split('-')[0]}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
 				setScontrini([...result.data]);
@@ -55,7 +54,6 @@ function LeftMenu(props) {
 		if (!checkResearch(true)) return;
 		const parti = data.split('-');
 		const url = `getScontriniByType?year=${parti[0]}&tipo=${tipo}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
 				setScontrini([...result.data]);
@@ -69,7 +67,6 @@ function LeftMenu(props) {
 		if (!checkResearch(false)) return;
 		const parti = data.split('-');
 		const url = `getScontriniByMonth?year=${parti[0]}&month=${parti[1]}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
 				setScontrini([...result.data]);
@@ -82,7 +79,6 @@ function LeftMenu(props) {
 		if (!checkResearch(true)) return;
 		const parti = data.split('-');
 		const url = `getScontriniByMonthAndType?year=${parti[0]}&month=${parti[1]}&tipo=${tipo}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
 				setScontrini([...result.data]);
@@ -94,7 +90,6 @@ function LeftMenu(props) {
 	const getScontriniByDate = () => {
 		if (!checkResearch(false)) return;
 		const url = `getScontriniByDate?date=${data}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
 				setScontrini([...result.data]);
@@ -106,10 +101,8 @@ function LeftMenu(props) {
 	const getScontriniByWeek = () => {
 		if (!checkResearch(false)) return;
 		const url = `getScontriniByWeek?date=${data}`;
-		console.log(url);
 		AxiosIstance.get(url)
 			.then((result) => {
-				console.log(result.data);
 				setScontrini([...result.data]);
 			})
 			.catch((err) => {

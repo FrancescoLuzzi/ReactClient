@@ -7,6 +7,18 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CancelIcon from '@material-ui/icons/Cancel';
 import Button from '@material-ui/core/Button';
 
+function formatDate(date) {
+	let month = String(date.getMonth() + 1);
+	let day = String(date.getDate());
+	if (day < 10) {
+		day = '0' + day;
+	}
+	if (month < 10) {
+		month = '0' + month;
+	}
+	return `${day}/${month}/${date.getFullYear()}`;
+}
+
 function Scontrino(props) {
 	const [state, setState] = useState(props.scontrino);
 
@@ -38,7 +50,7 @@ function Scontrino(props) {
 		props.handleDelete(state.id);
 	};
 
-	const classScontrino =(+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino';
+	const classScontrino = (+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino';
 
 	return (
 		<div className={classScontrino}>
@@ -46,22 +58,12 @@ function Scontrino(props) {
 			<br />
 			Prezzo: {Math.abs(state.prezzo)}
 			<br />
-			Data: {new Date(state.data).toLocaleDateString()}
+			Data: {formatDate(new Date(state.data))}
 			<br />
-			<div
-				className='descrizione'
-				aria-describedby={id}
-				variant='contained'
-				color='primary'
-				onClick={handleClick}
-			>
+			<div className='descrizione' aria-describedby={id} variant='contained' color='primary' onClick={handleClick}>
 				Descrizione
 			</div>
-			<CancelIcon
-				className='deleteButton'
-				fontSize='large'
-				onClick={handleClickOpen}
-			/>
+			<CancelIcon className='deleteButton' fontSize='large' onClick={handleClickOpen} />
 			<Popover
 				id={id}
 				open={open}
@@ -76,18 +78,10 @@ function Scontrino(props) {
 					horizontal: 'center',
 				}}
 			>
-				<Typography className='descrizione-popover'>
-					{state.descrizione}
-				</Typography>
+				<Typography className='descrizione-popover'>{state.descrizione}</Typography>
 			</Popover>
-			<Dialog
-				open={openDialog}
-				onClose={handleCloseDialog}
-				aria-labelledby='form-dialog-title'
-			>
-				<DialogTitle className='form-dialog-title'>
-					Sei sicuro di voler eliminare lo scontrino
-				</DialogTitle>
+			<Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby='form-dialog-title'>
+				<DialogTitle className='form-dialog-title'>Sei sicuro di voler eliminare lo scontrino</DialogTitle>
 				<DialogActions>
 					<Button onClick={handleCloseDialog} color='primary'>
 						Cancel
