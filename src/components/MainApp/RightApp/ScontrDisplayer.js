@@ -3,6 +3,7 @@ import { ScontriniContext } from '../../Contexts/ScontriniContext';
 import Scontrino from './Scontrino';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AxiosIstance } from '../../commons/AxiosIstance';
+import ScontriniStats from './ScontriniStats';
 
 function ScontrDisplayer(props) {
 	const [scontrini, setScontrini] = useContext(ScontriniContext);
@@ -17,6 +18,7 @@ function ScontrDisplayer(props) {
 
 	return (
 		<div className='scontrDisplayer'>
+			<ScontriniStats />
 			<TransitionGroup className='scontr-list'>
 				{scontrini.map((el) => {
 					return (
