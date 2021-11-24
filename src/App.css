@@ -287,6 +287,9 @@ div[role='dialog'] {
 		left: 45vw;
 		top: 93vh;
 	}
+	.rightApp {
+		padding-bottom: 2em;
+	}
 }
 
 .rightApp{
