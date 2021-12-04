@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ScontriniContext } from '../../Contexts/ScontriniContext';
 import Scontrino from './Scontrino';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';

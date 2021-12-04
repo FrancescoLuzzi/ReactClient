@@ -26,11 +26,11 @@ function LeftMenu(props) {
       SetYearSet(years);
     });*/
 
-	function getTipologie() {
+	const getTipologie = () => {
 		AxiosIstance.get('getTipologie').then((result) => {
 			setTipologie([...result.data]);
 		});
-	}
+	};
 
 	const checkResearch = (useTipo) => {
 		if (data === '') return false;
@@ -75,6 +75,7 @@ function LeftMenu(props) {
 				alert(err.value);
 			});
 	};
+
 	const getScontriniByMonthAndType = () => {
 		if (!checkResearch(true)) return;
 		const parti = data.split('-');
@@ -87,6 +88,7 @@ function LeftMenu(props) {
 				alert(err.value);
 			});
 	};
+
 	const getScontriniByDate = () => {
 		if (!checkResearch(false)) return;
 		const url = `getScontriniByDate?date=${data}`;
@@ -98,6 +100,7 @@ function LeftMenu(props) {
 				alert(err.value);
 			});
 	};
+
 	const getScontriniByWeek = () => {
 		if (!checkResearch(false)) return;
 		const url = `getScontriniByWeek?date=${data}`;
