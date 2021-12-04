@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
@@ -20,7 +20,7 @@ function formatDate(date) {
 }
 
 function Scontrino(props) {
-	const [state, setState] = useState(props.scontrino);
+	const [state] = useState(props.scontrino);
 
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -50,7 +50,7 @@ function Scontrino(props) {
 		props.handleDelete(state.id);
 	};
 
-	const classScontrino = (+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino';
+	const classScontrino = (+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino ' + state.tipo;
 
 	return (
 		<div className={classScontrino}>

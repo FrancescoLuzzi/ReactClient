@@ -13,7 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 export default function FormDialog() {
 	const [open, setOpen] = useState(false);
-	const [tipologie, setTipologie] = useContext(TipologieContext);
+	const [tipologie] = useContext(TipologieContext);
 
 	const [tipo, setTipo] = useState('');
 	const [prezzo, setPrezzo] = useState(0);

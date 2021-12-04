@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ScontriniContext } from '../../Contexts/ScontriniContext';
-
-const sum = function (array) {};
 
 function ScontriniStats(props) {
 	const [scontrini] = useContext(ScontriniContext);
 
 	var totale = 0;
-	if (scontrini != undefined) {
+	if (scontrini !== undefined) {
 		scontrini.forEach((element) => {
 			totale += parseFloat(element.prezzo);
 		});
