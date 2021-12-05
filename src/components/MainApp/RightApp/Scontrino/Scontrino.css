@@ -1,0 +1,62 @@
+.scontrino > span {
+	position: relative;
+	width: 3em;
+	height: 3em;
+	display: block;
+	margin: 0 auto;
+}
+
+.AffittoGarage::after {
+	content: url(./svgs/AffittoGarage.svg);
+}
+.Assicurazioni::after {
+	content: url(./svgs/Assicurazioni.svg);
+}
+.Benzina::after {
+	content: url(./svgs/Benzina.svg);
+}
+.Casa::after {
+	content: url(./svgs/Casa.svg);
+}
+.Cibo::after {
+	content: url(./svgs/Cibo.svg);
+}
+.Divertimento::after {
+	content: url(./svgs/Divertimento.svg);
+}
+.Estetica::after {
+	content: url(./svgs/Estetica.svg);
+}
+.Extra::after {
+	content: url(./svgs/Extra.svg);
+}
+.Gatto::after {
+	content: url(./svgs/Gatto.svg);
+}
+.Macchina::after {
+	content: url(./svgs/Macchina.svg);
+}
+.Palestra::after {
+	content: url(./svgs/Palestra.svg);
+}
+.Regali::after {
+	content: url(./svgs/Regali.svg);
+}
+.Salute::after {
+	content: url(./svgs/Salute.svg);
+}
+.Scarpe::after {
+	content: url(./svgs/Scarpe.svg);
+}
+.Sigarette::after {
+	content: url(./svgs/Sigarette.svg);
+}
+.Università::after {
+	content: url(./svgs/Università.svg);
+}
+.Vacanze::after {
+	content: url(./svgs/Vacanze.svg);
+}
+.Vestiti::after {
+	content: url(./svgs/Vestiti.svg);
+}

@@ -46,6 +46,7 @@ function Scontrino({ scontrino, handleDelete }) {
 
 	return (
 		<div className={classScontrino}>
+			<span className={scontrino.tipo} />
 			Tipologia: {scontrino.tipo}
 			<br />
 			Prezzo: {Math.abs(scontrino.prezzo)}
