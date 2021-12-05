@@ -6,66 +6,58 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CancelIcon from '@material-ui/icons/Cancel';
 import Button from '@material-ui/core/Button';
+import './Scontrino.css';
 
-function formatDate(date) {
-	let month = String(date.getMonth() + 1);
+const formatDate = (date) => {
 	let day = String(date.getDate());
-	if (day < 10) {
-		day = '0' + day;
-	}
-	if (month < 10) {
-		month = '0' + month;
-	}
+	if (day < 10) day = '0' + day;
+
+	let month = String(date.getMonth() + 1);
+	if (month < 10) month = '0' + month;
+
 	return `${day}/${month}/${date.getFullYear()}`;
-}
+};
 
-function Scontrino(props) {
-	const [state] = useState(props.scontrino);
-
-	const [anchorEl, setAnchorEl] = React.useState(null);
-
+function Scontrino({ scontrino, handleDelete }) {
+	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
-
+	const id_popover = open ? 'simple-popover' : undefined;
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
-
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-	const id = open ? 'simple-popover' : undefined;
 
 	const [openDialog, setOpenDialog] = useState(false);
-
 	const handleClickOpen = () => {
 		setOpenDialog(true);
 	};
-
 	const handleCloseDialog = () => {
 		setOpenDialog(false);
 	};
 
 	const deleteScontrino = () => {
 		handleCloseDialog();
-		props.handleDelete(state.id);
+		handleDelete(scontrino.id);
 	};
 
-	const classScontrino = (+state.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino ' + state.tipo;
+	const classScontrino = (+scontrino.prezzo > 0 ? 'uscita' : 'entrata') + ' scontrino ';
 
 	return (
 		<div className={classScontrino}>
-			Tipologia: {state.tipo}
+			Tipologia: {scontrino.tipo}
 			<br />
-			Prezzo: {Math.abs(state.prezzo)}
+			Prezzo: {Math.abs(scontrino.prezzo)}
 			<br />
-			Data: {formatDate(new Date(state.data))}
+			Data: {formatDate(new Date(scontrino.data))}
 			<br />
-			<div className='descrizione' aria-describedby={id} variant='contained' color='primary' onClick={handleClick}>
+			<div className='descrizione' aria-describedby={id_popover} variant='contained' color='primary' onClick={handleClick}>
 				Descrizione
 			</div>
 			<CancelIcon className='deleteButton' fontSize='large' onClick={handleClickOpen} />
 			<Popover
-				id={id}
+				id={id_popover}
 				open={open}
 				anchorEl={anchorEl}
 				onClose={handleClose}
@@ -78,7 +70,7 @@ function Scontrino(props) {
 					horizontal: 'center',
 				}}
 			>
-				<Typography className='descrizione-popover'>{state.descrizione}</Typography>
+				<Typography className='descrizione-popover'>{scontrino.descrizione}</Typography>
 			</Popover>
 			<Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby='form-dialog-title'>
 				<DialogTitle className='form-dialog-title'>Sei sicuro di voler eliminare lo scontrino</DialogTitle>
