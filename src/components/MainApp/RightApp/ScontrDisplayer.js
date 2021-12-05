@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ScontriniContext } from '../../Contexts/ScontriniContext';
-import Scontrino from './Scontrino';
+import Scontrino from './Scontrino/Scontrino';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AxiosIstance } from '../../commons/AxiosIstance';
 import ScontriniStats from './ScontriniStats';
