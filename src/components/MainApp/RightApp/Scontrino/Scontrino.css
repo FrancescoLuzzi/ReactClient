@@ -27,6 +27,9 @@
 .Estetica::after {
 	content: url(./svgs/Estetica.svg);
 }
+.Extra {
+	width: 4em !important;
+}
 .Extra::after {
 	content: url(./svgs/Extra.svg);
 }
