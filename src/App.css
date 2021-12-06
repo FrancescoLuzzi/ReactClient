@@ -22,7 +22,7 @@
 }
 
 html {
-	font-size: 22px;
+	font-size: 20px;
 }
 
 /*SELECTION COLORS*/
@@ -107,6 +107,7 @@ button {
 	cursor: pointer;
 	left: 45vw;
 	top: 93vh;
+	z-index: 10;
 }
 
 /*la parte in cui ci sono i Mui è per @material-ui*/
@@ -289,6 +290,9 @@ div[role='dialog'] {
 	}
 	.rightApp {
 		padding-bottom: 2em;
+	}
+	h3.leftMenuContent {
+		width: 100%;
 	}
 }
 
