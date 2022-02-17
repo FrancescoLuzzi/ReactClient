@@ -6,14 +6,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PostAddIcon from '@material-ui/icons/PostAdd';
-import { AxiosIstance } from './commons/AxiosIstance';
-import { TipologieContext } from './Contexts/TipologieContext';
+import { AxiosIstance } from '../commons/AxiosIstance';
+import { TipologieContext } from '../Contexts/TipologieContext';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import { VisibilityContext } from '../Contexts/Visibility-state';
 
 export default function FormDialog() {
 	const [open, setOpen] = useState(false);
 	const [tipologie] = useContext(TipologieContext);
+	const [,setVisibility] = useContext(VisibilityContext);
 
 	const [tipo, setTipo] = useState('');
 	const [prezzo, setPrezzo] = useState(0);
@@ -22,10 +24,12 @@ export default function FormDialog() {
 
 	const handleClickOpen = () => {
 		setOpen(true);
+		setVisibility(false)
 	};
 
 	const handleClose = () => {
 		setOpen(false);
+		setVisibility(true)
 	};
 
 	const checkScontrino = () => {

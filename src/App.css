@@ -1,299 +1,303 @@
 :root {
-	--main-theme-color: rgb(255, 159, 80);
-	--main-hover-theme-color: rgba(255, 127, 80, 0.952);
-	--main-selection-color: rgba(255, 95, 80, 0.836);
+  --main-theme-color: rgb(255, 159, 80);
+  --main-hover-theme-color: rgba(255, 127, 80, 0.952);
+  --main-selection-color: rgba(255, 95, 80, 0.836);
 
-	--header-color: black;
+  --header-color: black;
 
 	--header-color: black;
 
 	--left-menu-bg: rgb(88, 88, 88);
 	--main-bg: rgb(157, 157, 157);
 
-	--scontrino-bg: #dedede;
-	--scontrino-shadow: rgba(0, 0, 0, 0.55);
+  --scontrino-bg: #dedede;
+  --scontrino-shadow: rgba(0, 0, 0, 0.55);
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 html {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 /*SELECTION COLORS*/
 ::selection {
-	color: var(--main-selection-color);
-	background: none;
+  color: var(--main-selection-color);
+  background: none;
 }
 .scontrino::selection,
 .scontrino > *::selection {
-	color: white;
-	background: none;
+  color: white;
+  background: none;
 }
 
 #root {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 button {
-	border-radius: 5px;
-	padding: 2px;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .App {
-	text-align: center;
-	width: 100%;
-	height: 100%;
+  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .mainApp {
-	background-color: var(--main-bg);
-	min-height: 93%;
-	width: 100%;
+  background-color: var(--main-bg);
+  min-height: 93%;
+  width: 100%;
 }
 
 .header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	font-size: calc(10px + 2vmin);
-	background-color: var(--main-theme-color);
-	color: var(--header-color);
-	width: 100%;
-	height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  background-color: var(--main-theme-color);
+  color: var(--header-color);
+  width: 100%;
+  height: 7%;
 }
 
 .leftMenu {
-	background-color: var(--left-menu-bg);
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding: 0.2rem;
-	height: 40%;
-	width: 100%;
+  background-color: var(--left-menu-bg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.2rem;
+  height: 40%;
+  width: 100%;
 }
 
 .rightApp {
-	width: 100%;
-	height: 60%;
+  width: 100%;
+  height: 60%;
+  padding-bottom: 3.5em;
 }
 
 .leftMenuContent {
-	margin: 0.2rem;
-	width: 40%;
+  margin: 0.2rem;
+  width: 40%;
 }
 
 .leftMenuContent.datePicker,
 .leftMenuContent.selectTipologia {
-	width: 80%;
+  width: 80%;
 }
 
 .datePicker {
-	margin-bottom: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .addButton {
-	position: absolute;
-	background-color: var(--main-theme-color);
-	border-radius: 8px;
-	cursor: pointer;
-	left: 45vw;
-	top: 93vh;
-	z-index: 10;
+  position: fixed;
+  background-color: var(--main-theme-color);
+  border-radius: 8px;
+  cursor: pointer;
+  left: 45vw;
+  top: 93vh;
+  z-index: 10;
 }
 
 /*la parte in cui ci sono i Mui è per @material-ui*/
 
-div[role='dialog'] {
-	align-items: center;
+div[role="dialog"] {
+  align-items: center;
 }
 
 .MuiInput-underline:after {
-	border-bottom: 2px solid var(--main-theme-color) !important;
+  border-bottom: 2px solid var(--main-theme-color) !important;
 }
 .MuiButton-label {
-	color: var(--main-theme-color);
+  color: var(--main-theme-color);
 }
 .MuiButton-label:hover {
-	color: var(--main-hover-theme-color);
+  color: var(--main-hover-theme-color);
 }
 .MuiFormLabel-root.Mui-focused {
-	color: var(--main-theme-color) !important;
+  color: var(--main-theme-color) !important;
 }
 .form-dialog-title {
-	color: var(--main-theme-color);
+  color: var(--main-theme-color);
 }
 
 .addScontrinoContent {
-	color: var(--main-theme-color);
+  color: var(--main-theme-color);
 }
 
 .addButton:hover {
-	background-color: var(--main-hover-theme-color);
+  background-color: var(--main-hover-theme-color);
 }
 
 .graphDisplayer {
-	border-bottom: 2px solid black;
-	height: 0%;
+  border-bottom: 2px solid black;
+  height: 0%;
 }
 
 .scontrDisplayer {
-	height: 100%;
+  height: 100%;
 }
 
 .scontrino {
-	padding: 0.5rem;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-items: center;
-	justify-content: center;
-	border: 3px solid var(--scontrino-shadow);
-	border-radius: 8px;
-	box-shadow: 3px 3px 6px var(--scontrino-shadow);
-	margin: 0.5em;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--scontrino-shadow);
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px var(--scontrino-shadow);
+  margin: 0.5em;
 }
 
 .scontrino-enter {
-	opacity: 0;
+  opacity: 0;
 }
 .scontrino-enter-active {
-	opacity: 1;
-	transition: opacity 400ms ease-in;
+  opacity: 1;
+  transition: opacity 400ms ease-in;
 }
 .scontrino-exit {
-	opacity: 1;
+  opacity: 1;
 }
 .scontrino-exit-active {
-	opacity: 0;
-	transition: opacity 400ms ease-in;
+  opacity: 0;
+  transition: opacity 400ms ease-in;
 }
 
 .uscita {
-	background-color: hsla(0, 100%, 50%, 0.564);
+  background-color: hsla(0, 100%, 50%, 0.564);
 }
 
 .entrata {
-	background-color: hsla(120, 98%, 32%, 0.762);
+  background-color: hsla(120, 98%, 32%, 0.762);
 }
 
 .descrizione {
-	cursor: pointer;
-	border: 1px solid black;
-	width: 10rem;
-	border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 10rem;
+  border-radius: 8px;
 }
 
 .descrizione-popover {
-	padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .scontr-list {
-	max-height: 80%;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	align-items: stretch;
-	justify-content: center;
-	align-content: flex-start;
-	scroll-behavior: smooth;
-	overflow-x: hidden;
-	overflow-y: auto;
+  max-height: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-content: flex-start;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.hide {
+  display: none;
 }
 
 /*DESKTOP*/
 @media (min-width: 1025px) {
-	#root {
-		height: 100vh;
-		width: 100vw;
-	}
-	html {
-		font-size: 18px;
-	}
+  #root {
+    height: 100vh;
+    width: 100vw;
+  }
+  html {
+    font-size: 18px;
+  }
 
-	ul {
-		-webkit-columns: 2;
-		-moz-columns: 2;
-		columns: 2;
-		list-style-position: inside;
-	}
+  ul {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    list-style-position: inside;
+  }
 
-	.addButton {
-		left: 60vw;
-	}
+  .addButton {
+    left: 60vw;
+  }
 
-	.mainApp {
-		display: flex;
-		align-items: stretch;
-		flex-direction: row;
-		width: 100%;
-		height: 90%;
-	}
+  .mainApp {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    width: 100%;
+    height: 90%;
+  }
 
-	.leftMenu {
-		height: 100%;
-		width: 20%;
-		flex-direction: column;
-		align-items: center;
-		justify-content: start;
-	}
+  .leftMenu {
+    height: 100%;
+    width: 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
 
-	.leftMenuContent {
-		width: 60%;
-	}
+  .leftMenuContent {
+    width: 60%;
+  }
 
-	.rightApp {
-		height: 100%;
-		width: 80%;
-		display: flex;
-		align-items: stretch;
-		flex-direction: column;
-	}
+  .rightApp {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
 
-	.graphDisplayer {
-		height: 40%;
-		width: 100%;
-	}
+  .graphDisplayer {
+    height: 40%;
+    width: 100%;
+  }
 
-	.scontrDisplayer {
-		height: 60%;
-		width: 100%;
-	}
+  .scontrDisplayer {
+    height: 60%;
+    width: 100%;
+  }
 
-	.scontrino {
-		flex: 0 0 15%; /*grow | shrink | basis */
-		min-height: 5rem;
-	}
+  .scontrino {
+    flex: 0 0 15%; /*grow | shrink | basis */
+    min-height: 5rem;
+  }
+  .rightApp {
+    padding-bottom: 0;
+  }
 }
 
 /*MOBILE*/
 @media (max-width: 480px) {
-	html {
-		font-size: 19px;
-	}
-	.addDialog {
-		min-height: 250px;
-	}
-	.addButton {
-		position: fixed;
-		left: 45vw;
-		top: 93vh;
-	}
-	.rightApp {
-		padding-bottom: 2em;
-	}
-	h3.leftMenuContent {
-		width: 100%;
-	}
+  html {
+    font-size: 19px;
+  }
+  .addDialog {
+    min-height: 250px;
+  }
+  .addButton {
+    left: 45vw;
+    top: 94vh;
+  }
+  h3.leftMenuContent {
+    width: 100%;
+  }
 }
 
 .rightApp{
