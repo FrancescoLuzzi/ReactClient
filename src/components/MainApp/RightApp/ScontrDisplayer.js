@@ -19,7 +19,7 @@ function ScontrDisplayer(props) {
 	};
 
 	const currClassName= 'scontr-list ' + (!visibility ? 'hide' : '')
-	console.log(currClassName)
+
 	return (
 		<div className='scontrDisplayer'>
 			<ScontriniStats />
