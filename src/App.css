@@ -22,7 +22,10 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 24px;
+}
+button {
+  font-size: inherit;
 }
 
 /*SELECTION COLORS*/
@@ -225,6 +228,10 @@ div[role="dialog"] {
     font-size: 18px;
   }
 
+  button {
+    font-size: initial;
+  }
+
   ul {
     -webkit-columns: 2;
     -moz-columns: 2;
@@ -287,6 +294,10 @@ div[role="dialog"] {
 @media (max-width: 480px) {
   html {
     font-size: 19px;
+  }
+
+  button {
+    font-size: initial;
   }
   .addDialog {
     min-height: 250px;
