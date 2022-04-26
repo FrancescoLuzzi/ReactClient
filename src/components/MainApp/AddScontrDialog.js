@@ -19,7 +19,7 @@ export default function FormDialog() {
 
 	const [tipo, setTipo] = useState('');
 	const [prezzo, setPrezzo] = useState(0);
-	const [data, setData] = useState(new Date().toISOString().substr(0, 10));
+	const [data, setData] = useState(new Date().toISOString().split("T")[0]);
 	const [descrizione, setDescrizione] = useState('');
 
 	const handleClickOpen = () => {
