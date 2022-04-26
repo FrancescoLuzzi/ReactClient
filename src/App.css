@@ -136,6 +136,10 @@ div[role="dialog"] {
   color: var(--main-theme-color);
 }
 
+.deleteButton{
+  cursor: pointer;
+}
+
 .addScontrinoContent {
   color: var(--main-theme-color);
 }
