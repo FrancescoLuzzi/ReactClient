@@ -13,7 +13,7 @@ function LeftMenu(props) {
 
 	const [tipo, setTipo] = useState('');
 
-	const [data, setData] = useState(new Date().toISOString().substr(0, 10));
+	const [data, setData] = useState(new Date().toISOString().split("T")[0]);
 
 	/*const [yearSet,SetYearSet]=useState([]);
 
