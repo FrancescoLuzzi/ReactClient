@@ -5,10 +5,8 @@
 
   --header-color: black;
 
-	--header-color: black;
-
-	--left-menu-bg: rgb(88, 88, 88);
-	--main-bg: rgb(157, 157, 157);
+  --left-menu-bg: rgb(88, 88, 88);
+  --main-bg: rgb(157, 157, 157);
 
   --scontrino-bg: #dedede;
   --scontrino-shadow: rgba(0, 0, 0, 0.55);
@@ -313,42 +311,4 @@ div[role="dialog"] {
   h3.leftMenuContent {
     width: 100%;
   }
-}
-
-.rightApp{
-  height: 100%;
-  width: 80%;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-}
-
-.graphDisplayer{
-  height: 40%;
-  width: 100%;
-}
-
-.scontrDisplayer{
-  height: 60%;
-  width: 100%;
-}
-
-.scontr-list{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.scontrino{
-  flex: 0 1 30%; /*grow | shrink | basis */
-  min-height: 5rem;
-}
-
 }
